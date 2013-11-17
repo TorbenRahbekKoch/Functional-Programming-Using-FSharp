@@ -1,7 +1,7 @@
 ﻿module Chapter_01
 
 
-// 1.1
+    // 1.1
 let g n =
     n + 4
 
@@ -42,3 +42,10 @@ let rec sum (m, n) =
     | (m, n) -> (m + n) + sum(m, n-1)
 
 // 1.7
+// There isn't a definition for fact but I'll assume int -> int
+let fact n =
+  n + 1
+
+//
+//let t: (System.Math.PI, (fact) -1) =
+//  fun -> None
