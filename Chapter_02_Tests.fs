@@ -99,3 +99,27 @@ type ``Chapter_02_Tests``() =
         nextPrime 10 |> should equal 11
         nextPrime 23 |> should equal 29
 
+    [<Test>]
+    member x.``2.8 binomial coefficients``() =
+        bin(0,0) |> should equal 1
+        bin(1,0) |> should equal 1
+        bin(1,1) |> should equal 1
+        bin(2,0) |> should equal 1
+        bin(2,1) |> should equal 2
+        bin(2,2) |> should equal 1
+        bin(3,0) |> should equal 1
+        bin(3,1) |> should equal 3
+        bin(3,2) |> should equal 3
+        bin(3,3) |> should equal 1
+        bin(4,0) |> should equal 1
+        bin(4,1) |> should equal 4
+        bin(4,2) |> should equal 6
+        bin(4,3) |> should equal 4
+        bin(4,4) |> should equal 1
+        bin(5,0) |> should equal 1
+        bin(5,1) |> should equal 5
+        bin(5,2) |> should equal 10
+        bin(5,3) |> should equal 10
+        bin(5,4) |> should equal 5
+        bin(5,5) |> should equal 1
+

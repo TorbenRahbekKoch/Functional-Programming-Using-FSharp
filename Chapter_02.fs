@@ -103,3 +103,10 @@ let rec nextPrime n =
         n + 1
     else
         nextPrime (n + 1)
+
+// 2.8 Binomial coefficients
+let rec bin(n, k) =
+    match (n, k) with
+    | (row, 0) -> 1
+    | (row, col) when col = n -> 1
+    | (row, col) -> bin(n - 1, k - 1) + bin(n - 1, k)
