@@ -57,3 +57,49 @@ let notDivisible (d, n) =
         true
     else
         not (d % n = 0)
+
+// 2.7 1. - with pattern matching
+let rec test(a, b, c) =
+    match (a, b) with
+    |_ when a > b -> failwith(String.Format("a should <= b: {0} <= {1}", a, b))
+    |_ when a < b -> notDivisible(a, c) && test(a + 1, b, c)
+    |_ -> notDivisible(a, c) 
+
+// or using ifs - far less readable
+let rec test_if(a, b, c) =
+    if a > b then
+        failwith(String.Format("a should <= b: {0} <= {1}", a, b))
+    else
+        if a < b then
+            notDivisible(a, c) && test(a + 1, b, c)
+        else
+            notDivisible(a, c) 
+
+// 2.7 2. 
+// n is a prime if it cannot be divided by any integer from 2 to sqrt(n)
+// I think the book intends us to use the test(a,b,c) function above, but it is
+// defined incorrectly - a correctly defined should look like this (a and c is reversed):
+let rec test_prime(a, b, c) =
+    match (a, b) with
+    |_ when a > b -> failwith(String.Format("a should <= b: {0} <= {1}", a, b))
+    |_ when a < b -> notDivisible(c, a) && test_prime(a + 1, b, c)
+    |_ -> notDivisible(c, a) 
+
+
+// The matches with 1, 2, and 3 are to avoid b < a when using sqrt.
+// Can the "(float)n |> Math.Sqrt |> Math.Floor |> (int)" be written more intelligible?
+let prime n =
+    match n with
+    | 1 -> true
+    | 2 -> true
+    | 3 -> true
+    | _ when n < 1 -> false
+    | _ -> test_prime(2, (float)n |> Math.Sqrt |> Math.Floor |> (int) , n)
+
+// 2.7 3.
+let rec nextPrime n =
+    let isPrime = prime (n + 1)
+    if isPrime then
+        n + 1
+    else
+        nextPrime (n + 1)

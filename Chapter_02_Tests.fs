@@ -63,3 +63,39 @@ type ``Chapter_02_Tests``() =
         notDivisible (2, 5) |> should equal true
         notDivisible (9, 3) |> should equal false
 
+    [<Test>]
+    member x.``2.7 1. test``() =
+        test(4, 6, 2) |> should equal false
+        test(6, 9, 5) |> should equal true
+
+        test_if(4, 6, 2) |> should equal false
+        test_if(6, 9, 5) |> should equal true
+
+    [<Test>]
+    member x.``2.7 2. prime``() =
+        prime 1 |> should equal true
+        prime 2 |> should equal true
+        prime 3 |> should equal true
+        prime 4 |> should equal false
+        prime 5 |> should equal true
+        prime 6 |> should equal false
+        prime 7 |> should equal true
+        prime 8 |> should equal false
+        prime 9 |> should equal false
+        prime 10 |> should equal false
+        prime 23 |> should equal true
+
+    [<Test>]
+    member x.``2.7 3. nextPrime``() =
+        nextPrime 1 |> should equal 2
+        nextPrime 2 |> should equal 3
+        nextPrime 3 |> should equal 5
+        nextPrime 4 |> should equal 5
+        nextPrime 5 |> should equal 7
+        nextPrime 6 |> should equal 7
+        nextPrime 7 |> should equal 11
+        nextPrime 8 |> should equal 11
+        nextPrime 9 |> should equal 11
+        nextPrime 10 |> should equal 11
+        nextPrime 23 |> should equal 29
+

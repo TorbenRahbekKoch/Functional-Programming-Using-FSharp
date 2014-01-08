@@ -42,10 +42,43 @@ let rec sum (m, n) =
     | (m, n) -> (m + n) + sum(m, n-1)
 
 // 1.7
-// There isn't a definition for fact but I'll assume int -> int
-let fact n =
-  n + 1
+let rec fact = function
+    | 0 -> 1
+    | n -> n * fact(n-1)
 
-//
-//let t: (System.Math.PI, (fact) -1) =
-//  fun -> None
+let rec power = function
+    | (x, 0) -> 1.0
+    | (x, n) -> x* power(x, n-1)
+      
+let t1 = (System.Math.PI, (fact) -1) : float * int
+
+let t2 = fact(fact 4): int
+
+let t3 = power(System.Math.PI, fact 2) : float
+
+// why is the type not: (float * int -> float, int -> int) - aka a tuple?
+let t4 = (power, fact) : (float * int -> float) * (int -> int)
+
+
+// 1.8
+let a = 5
+// As a curiosum, try writing: let f a = a +1
+// It gives a rather unexpected result.
+let f a = a + 1
+
+// Using g_ (underscore) because is already used above
+let g_ b = (f b) + a
+
+//       | a  |-> 5                      |  
+// env = | f  |-> "the add one function" |
+//       | g_ |-> "the add six function" |
+
+//    f 3
+// ~> 3 + 1
+// ~> 4
+
+//    g_ 3
+// ~> (f 3) + a
+// ~> (3 + 1) + a
+// ~> 4 + 5
+// ~> 9
