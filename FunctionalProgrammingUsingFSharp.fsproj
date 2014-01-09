@@ -59,6 +59,8 @@
     <Compile Include="Chapter_01_Tests.fs" />
     <Compile Include="Chapter_02.fs" />
     <Compile Include="Chapter_02_Tests.fs" />
+    <Compile Include="Chapter_03.fs" />
+    <Compile Include="Chapter_03_Tests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>

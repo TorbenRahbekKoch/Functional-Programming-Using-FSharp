@@ -1,4 +1,5 @@
 ﻿module Chapter_02_Tests
+open System
 open NUnit.Framework
 open FsUnit
 open Chapter_02
@@ -136,3 +137,10 @@ type ``Chapter_02_Tests``() =
         unVAT 10 (VAT 10 100.0) |> should be (greaterThan 99.99)
         unVAT 10 (VAT 10 100.0) |> should be (lessThan 100.01)
         unVAT 0 (VAT 0 1.0) |> should equal 1.0
+
+    [<Test>]
+    member x.``2.12 min(f)``() =
+        min(fun n -> n % 2) |> should equal Int32.MinValue
+        // Disabled - way to slow ;)
+        // min(fun n -> if n = 0 then 0 else 1) |> should equal 0
+        min(fun n -> n % 10000) |> should equal -2147480000

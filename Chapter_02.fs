@@ -173,6 +173,14 @@ let VAT n x = x + x * float n/100.0
 
 let unVAT n x = x / ((100.0 + float n) / 100.0)
 
-
-
-    
+// 2.12 min(f n) 
+// This is obviously a horribly ineffecient way to do this - but it cannot be done any
+// different, can it???
+let min f =     
+    seq { for n in Int32.MinValue .. Int32.MaxValue do yield n}
+    |> Seq.find (fun n -> f n = 0)
+        
+// 2.13 curry/uncurry
+// I have no clue as to what this exercise wants me to do...
+//let curry (f: 'a*'b -> 'c): 'a -> 'b -> 'c =
+// ?????    
