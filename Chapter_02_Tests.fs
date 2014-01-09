@@ -123,3 +123,16 @@ type ``Chapter_02_Tests``() =
         bin(5,4) |> should equal 5
         bin(5,5) |> should equal 1
 
+    [<Test>]
+    member x.``2.11 VAT``() =
+        VAT 10 100.0 |> should equal 110.0
+        VAT 0 1.0 |> should equal 1.0
+
+    [<Test>]
+    member x.``2.11 unVAT``() =
+        unVAT 10 110.0 |> should be (greaterThan 99.99)
+        unVAT 10 110.0 |> should be (lessThan 100.01)
+        unVAT 0 1.0 |> should equal 1.0
+        unVAT 10 (VAT 10 100.0) |> should be (greaterThan 99.99)
+        unVAT 10 (VAT 10 100.0) |> should be (lessThan 100.01)
+        unVAT 0 (VAT 0 1.0) |> should equal 1.0

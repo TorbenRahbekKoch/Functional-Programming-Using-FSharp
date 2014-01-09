@@ -105,8 +105,74 @@ let rec nextPrime n =
         nextPrime (n + 1)
 
 // 2.8 Binomial coefficients
+// This version is not fully tail-recursive, which might pose a problem for bigger n's and k's
+// Furthermore it will calculate a lot of the numbers twice (I think...)
 let rec bin(n, k) =
     match (n, k) with
     | (row, 0) -> 1
     | (row, col) when col = n -> 1
     | (row, col) -> bin(n - 1, k - 1) + bin(n - 1, k)
+
+// 2.9
+let rec f_ = function
+    | (0, y) -> y
+    | (x, y) -> f_(x-1, x*y)
+
+// 1. The inferred type is int*int -> int
+// 2. The function terminates for values (x, y) where x >= 0
+// 3. 
+//    f_(2, 3)
+// ~> f_(2-1, 2*3)
+// ~> f_(1, 6)
+// ~> f_(1-1, 1*6)
+// ~> f_(0, 6)
+// ~> 6
+
+//    f_(3, 2)
+// ~> f_(3-1, 3*2)
+// ~> f_(2, 6)
+// ~> f_(2-1, 2*6)
+// ~> f_(1, 12)
+// ~> f_(1-1, 1*12)
+// ~> f_(0, 12)
+// ~> 12
+
+//    f_(6, 6)
+// ~> f_(6-1, 6*6)
+// ~> f_(5, 36)
+// ~> f_(5-1, 5*36)
+// ~> f_(4, 180)
+// ~> f_(4-1, 4*180)
+// ~> f_(3, 720)
+// ~> f_(3-1, 3*720)
+// ~> f_(2, 2160)
+// ~> f_(2-1, 2*2160)
+// ~> f_(1, 4320)
+// ~> f_(1-1, 1*4320)
+// ~> f_(0, 4320)
+// ~> 4320
+
+// 4. f_(x, y) = ???
+
+
+// 2.10
+let test_(c, e) = if c then e else 0;;
+// 1. The inferred type is bool*int -> int
+// 2. This seems to result in a StackOverflowException (if the fact function is naively implemented)
+// It does this, because fact(-1) is evaluated before calling test_
+open Chapter_01 // access the fact function
+let ``2.10 2. result`` = test_(false, fact(-1))
+
+// 3. This, on the other hand, succeeds:
+// It does this, because fact -1 is only evaluated/executed in the true branch of the if, which
+// of course is never hit here.
+let ``2.10 3. result`` = if false then fact -1 else 0
+
+// 2.11 VAT / unVAT
+let VAT n x = x + x * float n/100.0
+
+let unVAT n x = x / ((100.0 + float n) / 100.0)
+
+
+
+    
