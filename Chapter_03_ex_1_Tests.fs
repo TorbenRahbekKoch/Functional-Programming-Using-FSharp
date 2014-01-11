@@ -1,8 +1,8 @@
-﻿module Chapter_03_Tests
+﻿module Chapter_03_ex_1_Tests
 open System
 open NUnit.Framework
 open FsUnit
-open Chapter_03
+open Chapter_03_ex_1
 
 [<TestFixture>]
 type ``Chapter_03_Tests``() = 
@@ -44,5 +44,4 @@ type ``Chapter_03_Tests``() =
         { AmPm = AM; Hour=11; Minute=59 } < { AmPm = PM; Hour=1; Minute=15 } |> should equal true
         { AmPm = AM; Hour=11; Minute=00 } < { AmPm = AM; Hour=1; Minute=15 } |> should equal false
 
-        { AmPm = AM; Hour=11; Minute=59 } < { AmPm = AM; Hour=11; Minute=59 } |> should equal false
-
+        { AmPm = AM; Hour=11; Minute=59 } < { AmPm = AM; Hour=11; Minute=59 } |> should equal false            

@@ -1,4 +1,4 @@
-﻿module Chapter_03
+﻿module Chapter_03_ex_1
 
 // 3.1 time test
 
@@ -14,6 +14,7 @@ type Time = {
 // Due to the built-in value comparison of records with comparable members
 // the comparison of Time records doesn't need any specific implementation, since
 // we have ordered the members deliberately to reflect that AmPm is more important than Hour, etc.
+// This would also have worked if we used a string ("AM"/"PM") for the Meridiem.
 // If the record had been defined as below, it would not work:
 
 type Time2 = {
