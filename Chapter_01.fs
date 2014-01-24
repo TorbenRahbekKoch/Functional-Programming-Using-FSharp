@@ -1,24 +1,34 @@
 ﻿module Chapter_01
 
 
-    // 1.1
+// 1.1 - well, even to a beginner this is child's stuff ;)
 let g n =
     n + 4
 
 // 1.2
-let h x y =
+let h1 x y =
     System.Math.Sqrt(x*x + y*y)
+
+// Why is it necessary to give a type here??
+let h2 (x: float) y =
+    sqrt(x*x + y*y)
 
 // 1.3
 // Note! One thing that confuses me here is the implicit parameter! I started writing:
-// let gf n = function - which really gives some rather non-obvious results - (try it!).
+// let gf n = function - which really gives some rather non-obvious results - (see below).
 // This is a fact that the book totally forgets to mention.
 let gf = function
     | x -> (x + 4)
 
+let gfn n = function
+    | x-> (x + 4)
 
-let hf = function
+let hf1 = function
     | (x, y) -> System.Math.Sqrt(x*x + y*y)
+
+// Again why necessary to give the type?
+let hf2 = function
+    | (x:float, y) -> sqrt(x*x + y*y)
 
 // 1.4
 // How to avoid the incomplete matches warning?
@@ -27,8 +37,9 @@ let rec f14 = function
     | 1 -> 1
     | n when n < 0 -> 0
     | n when n > 0 -> n + (n-1 |> f14)
+// f n = 10
 
-// 1.5
+// 1.5 - The naive implementation, which has infinte recursion on negative values
 let rec fib = function
     | 0 -> 0
     | 1 -> 1
