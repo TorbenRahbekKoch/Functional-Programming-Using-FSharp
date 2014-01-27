@@ -16,7 +16,8 @@ let rec pow s n =
     | 1 -> s
     | x -> s + pow s (n-1)
     
-// 2.2 - a version using StringBuilder - preliminary timings suggest that this version is by far the most performant
+// 2.2 - a version using StringBuilder - preliminary timings suggest that this 
+// version is by far the most performant
 let powWithBuilder (s: string) n =
     let builder = System.Text.StringBuilder()
     for count = 1 to n do
@@ -27,8 +28,8 @@ let powWithBuilder (s: string) n =
 let powWithStringConcat s n =
     String.Concat(seq { for i in 1 .. n do yield s })
 
-// 2.3 - checking for an index outside the range could either return false (as here) or throw an
-// ArgumentOutOfRangeException.
+// 2.3 - checking for an index outside the range could either return false 
+// (as here) or throw an ArgumentOutOfRangeException.
 // Note here, that it is necessary to explicitly define the type for s
 let isIthChar ((s:string),  index,  ch) =
     if (index < 0 || index >= s.Length) then
@@ -104,7 +105,8 @@ let rec nextPrime n =
         nextPrime (n + 1)
 
 // 2.8 Binomial coefficients
-// This version is not fully tail-recursive, which might pose a problem for bigger n's and k's
+// This version is not tail-recursive, which will pose a problem for 
+// bigger n's and k's
 // Furthermore it will calculate a lot of the numbers twice (I think...)
 let rec bin(n, k) =
     match (n, k) with
@@ -151,21 +153,23 @@ let rec f_ = function
 // ~> f_(0, 4320)
 // ~> 4320
 
-// 4. f_(x, y) = ???
+
+// 4. f_(x, y) = ??? Any mathematicians who can figure out what the answer 
+// should be?
 
 
 // 2.10
 let test_(c, e) = if c then e else 0;;
 // 1. The inferred type is bool*int -> int
 // 2. This seems to result in a StackOverflowException (if the fact function is
-// naively implemented)
+// naively implemented - which the version from chapter 1 is)
 // It does this, because fact(-1) is evaluated before calling test_
 open Chapter_01 // access the fact function
 let ``2.10 2. result`` = test_(false, fact(-1))
 
 // 3. This, on the other hand, succeeds:
-// It does this, because fact -1 is only evaluated/executed in the true branch of the if, which
-// of course is never hit here.
+// It does this, because fact -1 is only evaluated/executed in the true branch 
+// of the if, which of course is never hit here, due to the "if false then".
 let ``2.10 3. result`` = if false then fact -1 else 0
 
 // 2.11 VAT / unVAT
@@ -181,9 +185,7 @@ let min f =
     |> Seq.find (fun n -> f n = 0)
         
 // 2.13 curry/uncurry
-// I have no clue as to what this exercise wants me to do...
-//let curry (f: 'a*'b -> 'c): 'a -> 'b -> 'c =
-// ?????    
+// I personally couldn't figure out what this exercise wants me to do...
 // Thanks to Rune Ibsen for this:
 let curry f   = fun a -> fun b -> f (a,b)
 let uncurry f = fun (a,b) -> f a b
