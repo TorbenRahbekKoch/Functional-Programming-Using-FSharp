@@ -1,8 +1,7 @@
 ﻿module Chapter_02
 open System
 
-
-// 2.1
+// 2.1 - again: remember the implicit parameter
 let f = function
   | n when n % 2 = 0 -> true
   | n when n % 3 = 0 -> true
@@ -37,7 +36,7 @@ let isIthChar ((s:string),  index,  ch) =
     else
         s.[index] = ch
 
-// 2.4 - indices outside the range results in null
+// 2.4 - indices outside the range results in 0
 // Using s.Substring for obtaining the part of the string from index and onwards.
 let occFromIth(s: string, index, ch) = 
     if (index < 0 || index >= s.Length) then
@@ -87,14 +86,14 @@ let rec test_prime(a, b, c) =
 
 
 // The matches with 1, 2, and 3 are to avoid b < a when using sqrt.
-// Can the "(float)n |> Math.Sqrt |> Math.Floor |> (int)" be written more intelligible?
+// Can the "(float)n |> sqrt |> Math.Floor |> (int)" be written more intelligible?
 let prime n =
     match n with
     | 1 -> true
     | 2 -> true
     | 3 -> true
     | _ when n < 1 -> false
-    | _ -> test_prime(2, (float)n |> Math.Sqrt |> Math.Floor |> (int) , n)
+    | _ -> test_prime(2, (float)n |> sqrt |> Math.Floor |> (int) , n)
 
 // 2.7 3.
 let rec nextPrime n =
@@ -158,7 +157,8 @@ let rec f_ = function
 // 2.10
 let test_(c, e) = if c then e else 0;;
 // 1. The inferred type is bool*int -> int
-// 2. This seems to result in a StackOverflowException (if the fact function is naively implemented)
+// 2. This seems to result in a StackOverflowException (if the fact function is
+// naively implemented)
 // It does this, because fact(-1) is evaluated before calling test_
 open Chapter_01 // access the fact function
 let ``2.10 2. result`` = test_(false, fact(-1))
@@ -184,3 +184,6 @@ let min f =
 // I have no clue as to what this exercise wants me to do...
 //let curry (f: 'a*'b -> 'c): 'a -> 'b -> 'c =
 // ?????    
+// Thanks to Rune Ibsen for this:
+let curry f   = fun a -> fun b -> f (a,b)
+let uncurry f = fun (a,b) -> f a b
