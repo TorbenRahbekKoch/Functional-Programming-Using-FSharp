@@ -138,7 +138,7 @@ type ``Chapter_02_Tests``() =
 
     [<Test>]
     member x.``2.12 min(f)``() =
-        min(fun n -> n % 2) |> should equal Int32.MinValue
+        min(fun n -> n % 2) |> should equal 2
         // Disabled - way to slow ;)
         // min(fun n -> if n = 0 then 0 else 1) |> should equal 0
-        min(fun n -> n % 10000) |> should equal -2147480000
+        min(fun n -> n % 10000) |> should equal 10000

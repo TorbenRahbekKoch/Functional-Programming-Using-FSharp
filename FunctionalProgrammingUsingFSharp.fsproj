@@ -69,6 +69,14 @@
     <Compile Include="Chapter_03_ex_4_Tests.fs" />
     <Compile Include="Chapter_03_ex_5.fs" />
     <Compile Include="Chapter_03_ex_7.fs" />
+    <Compile Include="Chapter_04_ex_1.fs" />
+    <Compile Include="Chapter_04_ex_2.fs" />
+    <Compile Include="Chapter_04_ex_3.fs" />
+    <Compile Include="Chapter_04_ex_4.fs" />
+    <Compile Include="Chapter_04_ex_5.fs" />
+    <Compile Include="Chapter_04_ex_6.fs" />
+    <Compile Include="Chapter_04_ex_7.fs" />
+    <Compile Include="Chapter_04_ex_8.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>
