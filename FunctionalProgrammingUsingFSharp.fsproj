@@ -51,10 +51,15 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
+    <Reference Include="Unquote">
+      <HintPath>packages\Unquote.2.2.2\lib\net40\Unquote.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Test Bench.fsx" />
     <Compile Include="Chapter_01.fs" />
     <Compile Include="Chapter_01_Tests.fs" />
     <Compile Include="Chapter_02.fs" />
@@ -77,6 +82,9 @@
     <Compile Include="Chapter_04_ex_6.fs" />
     <Compile Include="Chapter_04_ex_7.fs" />
     <Compile Include="Chapter_04_ex_8.fs" />
+    <Compile Include="Chapter_04_ex_9.fs" />
+    <Compile Include="Chapter_04_ex_10.fs" />
+    <Compile Include="Chapter_04_ex_11.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>
