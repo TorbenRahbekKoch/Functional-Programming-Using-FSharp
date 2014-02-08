@@ -1,8 +1,12 @@
 ﻿module Chapter_04_ex_11
+#if INTERACTIVE
+#r "packages/Unquote.2.2.2/lib/net40/unquote.dll"
+#r "packages/FsUnit.1.2.1.0/lib/net40/FsUnit.NUnit.dll"
+#r "packages/NUnit.2.6.2/lib/nunit.framework.dll"
+#endif    
 open System
 open NUnit.Framework
 open FsUnit
-// #r "packages/Unquote.2.2.2/lib/net40/unquote.dll"
 open Swensen.Unquote
 
 // 4.11 bonus - check whether the list is actually a weak ascending list
@@ -30,6 +34,38 @@ let rec insert weakList item =
     | x::xs when item <= x -> item::[x] @ xs
     | x::xs when item > x -> x::(insert xs item)
     | _ -> failwith "Incomplete match on %A" weakList
+
+// 4.11 - 3. intersect
+// Why does he want this as a tuple??
+//let rec intersect (list1, list2) =
+//    match list1, list2 with
+//    | 
+//
+//test <@ intersect ([1;1;1;2;2], [1;1;2;4]) = [1;1;2] @>
+//test <@ intersect ([1;1;2;4], [1;1;1;2;2]) = [1;1;2] @>
+
+// 4.11 - 4. Plus
+let plus (list1, list2) =
+    let rec plus' list resultlist =
+        match list with
+        | [] -> resultlist
+        | x::xs -> insert resultlist x |> plus' xs 
+    plus' list2 list1
+
+ // 4.11 - 5. Minus
+let minus (minuendList, subtrahendList) =
+    let rec removeItem list itemToRemove resultList =
+        match list with
+        | [] -> resultList
+        | x::[] when x = itemToRemove -> resultList 
+        | x::xs when x = itemToRemove -> resultList @ xs
+        | x::xs -> resultList @ [x] @ removeItem xs itemToRemove resultList
+    let rec removeList listToRemove resultlist =
+        match listToRemove with
+        | [] -> resultlist
+        | x::xs -> removeList xs (removeItem resultlist x [])
+    removeList subtrahendList minuendList
+
 
 [<TestFixture>]
 type ``Chapter_04_ex_11_Tests``() = 
@@ -64,4 +100,20 @@ type ``Chapter_04_ex_11_Tests``() =
         test <@ insert [1;2;3] 1 = [1;1;2;3] @>
         test <@ insert [1;1;3] 4 = [1;1;3;4] @>
         test <@ insert [1;1;3] 2 = [1;1;2;3] @>
-        
+
+    [<Test>]
+    member x.``4.11 3. intersect``() = 
+        //test <@ intersect ([1;1;1;2;2], [1;1;2;4]) = [1;1;2] @>
+        //test <@ intersect ([1;1;2;4], [1;1;1;2;2]) = [1;1;2] @>
+        test <@ "Not implemented" = "" @>
+
+    [<Test>]
+    member x.``4.11 4. plus``() = 
+        test <@ plus([1;1;2], [1;2;4]) = [1;1;1;2;2;4]@>
+        test <@ plus([1;2;4], [1;1;2]) = [1;1;1;2;2;4]@>
+        test <@ plus([1;3;5], [2;4;6]) = [1;2;3;4;5;6]@>
+
+    [<Test>]
+    member x.``4.11 5. minus``() = 
+        test <@ minus([1;1;1;2;2],[1;1;2;3]) = [1;2] @>
+        test <@ minus([1;1;1;2;2;4],[1;1;2;3]) = [1;2;4] @>
