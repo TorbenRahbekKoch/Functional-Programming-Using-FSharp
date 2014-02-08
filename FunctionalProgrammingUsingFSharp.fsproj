@@ -84,6 +84,7 @@
     <Compile Include="Chapter_04_ex_9.fs" />
     <Compile Include="Chapter_04_ex_10.fs" />
     <Compile Include="Chapter_04_ex_11.fs" />
+    <Compile Include="Chapter_04_ex_12.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>
