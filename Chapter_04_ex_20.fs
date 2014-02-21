@@ -10,7 +10,7 @@ open Chapter_04_ex_19
 
 // 4.20
 // I can't help wondering whether functional programmers in general are:
-// 1. lazy - I mean how hard is it to write colorMap map - instead of colMap m ?? ;)
+// 1. lazy - I mean how hard is it to write e.g colorMap map - instead of colMap m ?? ;)
 // 2. a bit aloof and reveling in slightly unreadable code ?? ;)
 // I think the code gets vastly more readable by using good names:
 let colorMap map =
