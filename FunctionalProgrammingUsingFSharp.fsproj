@@ -90,6 +90,9 @@
     <Compile Include="Chapter_04_ex_15.fs" />
     <Compile Include="Chapter_04_ex_16.fs" />
     <Compile Include="Chapter_04_ex_17.fs" />
+    <Compile Include="Chapter_04_ex_18.fs" />
+    <Compile Include="Chapter_04_ex_19.fs" />
+    <Compile Include="Chapter_04_ex_20.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>

@@ -9,10 +9,15 @@ open Swensen.Unquote
 
 // 4.15 revrev
 let revrev listOfList =
+    let rec reverseInner list reversedList =
+        match list with
+        | [] -> reversedList
+        | x::xs -> reverseInner xs (x::reversedList)
+
     let rec reverseList list reversedList =
         match list with 
-        | [] -> []
-        | x::xs -> reverseList xs ((reverseList x [])::reversedList)
+        | [] -> reversedList
+        | x::xs -> reverseList xs ((reverseInner x [])::reversedList)
     reverseList listOfList []
 
 [<TestFixture>]

@@ -1,6 +1,5 @@
 ﻿module Chapter_03_ex_3
 
-
 type Complex = float * float
 
 // 3.3 1. Add and Multiply complex numbers represented as tuples

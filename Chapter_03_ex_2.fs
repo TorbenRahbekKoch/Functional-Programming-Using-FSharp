@@ -19,7 +19,7 @@ let subtractOldBritishMoney money1 money2 =
     let (pound1, shilling1, pence1) = money1
     let (pound2, shilling2, pence2) = money2
 
-    // Not sure it's called "carry" when subtracting...
+    // Not sure whether it's called "carry" when subtracting...
     let (pence, carry) = 
         let difference = pence1 - pence2
         let willBorrow = difference < 0
@@ -51,8 +51,8 @@ type OldBritishMoney = {
     pound : int
 }
 
-// The body of the function is actually the same as the body for the triple above, so we could have
-// called that directly
+// The body of the function is actually the same as the body for the triple 
+// above, so we could have called that directly
 let addOldBritishMoneyRec money1 money2 =
     let (pound1, shilling1, pence1) = (money1.pound, money1.shilling, money1.pence)
     let (pound2, shilling2, pence2) = (money2.pound, money2.shilling, money2.pence)
@@ -65,8 +65,8 @@ let addOldBritishMoneyRec money1 money2 =
     let pound = pound1 + pound2 + carry
     {pence = pence; shilling = shilling; pound = pound}
 
-// The body of the function is actually the same as the body for the triple above, so we could have
-// called that directly
+// The body of the function is actually the same as the body for the triple
+// above, so we could have called that directly
 let subtractOldBritishMoneyRec money1 money2 =
     let (pound1, shilling1, pence1) = (money1.pound, money1.shilling, money1.pence)
     let (pound2, shilling2, pence2) = (money2.pound, money2.shilling, money2.pence)
