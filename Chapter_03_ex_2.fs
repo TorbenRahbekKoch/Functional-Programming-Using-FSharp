@@ -1,7 +1,6 @@
 ﻿module Chapter_03_ex_2
 
 // 3.2 with triple
-// I'm note sure what is meant by "... use patterns to obtain readable declarations."
 
 let addOldBritishMoney money1 money2 =
     let (pound1, shilling1, pence1) = money1
@@ -19,7 +18,7 @@ let subtractOldBritishMoney money1 money2 =
     let (pound1, shilling1, pence1) = money1
     let (pound2, shilling2, pence2) = money2
 
-    // Not sure whether it's called "carry" when subtracting...
+    // Not sure whether it's called "carry" when subtracting... ;)
     let (pence, carry) = 
         let difference = pence1 - pence2
         let willBorrow = difference < 0
