@@ -20,9 +20,15 @@ let revrev listOfList =
         | x::xs -> reverseList xs ((reverseInner x [])::reversedList)
     reverseList listOfList []
 
-test <@ revrev [[1;2;3];[4;5;6]] = [[6;5;4];[3;2;1;3]] @>
-
-
+test <@ revrev [[1;2;3];[4;5;6]] = [[6;5;4];[3;2;1]] @>
+//
+//let rec reverseInner list reversedList =
+//    match list with
+//    | [] -> reversedList
+//    | x::xs -> reverseInner xs (x::reversedList)
+//
+//test <@ revrev [1;2;3]] = [[6;5;4];[3;2;1;3]] @>
+//
 [<TestFixture>]
 type ``Chapter_04_ex_15_Tests``() = 
     [<Test>]

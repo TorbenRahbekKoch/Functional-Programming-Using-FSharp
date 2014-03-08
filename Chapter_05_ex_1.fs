@@ -19,7 +19,7 @@ let foldedFilter predicate items =
                   []
 
 [<TestFixture>]
-type ``Chapter_05_ex 1_Tests``() = 
+type ``Chapter 05 exercise 1 Tests``() = 
     [<Test>]
     member x.``5.1 foldedFilter``() = 
         test <@ (foldedFilter (fun x -> x > 0) [-2;-1;0;1;2]) = [1;2] @>

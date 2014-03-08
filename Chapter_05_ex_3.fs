@@ -1,4 +1,4 @@
-﻿module Chapter_05_ex_2
+﻿module Chapter_05_ex_3
 #if INTERACTIVE
 #r "packages/Unquote.2.2.2/lib/net40/unquote.dll"
 #r "packages/NUnit.2.6.2/lib/nunit.framework.dll"
@@ -17,11 +17,8 @@ let sum predicate items =
                   items
                   0
 
-test <@ (sum (fun x -> x > 0) [-1;0;1]) = 1 @> 
-test <@ (sum (fun x -> x < 0) [-1;0;1]) = -1 @> 
-
 [<TestFixture>]
-type ``Chapter_05_ex 3_Tests``() = 
+type ``Chapter 05 exercise 3 Tests``() = 
     [<Test>]
     member x.``5.3 conditional sum using foldBack``() = 
         test <@ (sum (fun x -> x > 0) [-1;0;1]) = 1 @> 
