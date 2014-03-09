@@ -7,6 +7,7 @@ open System
 open NUnit.Framework
 open Swensen.Unquote
 
+// 5.2
 let foldedRevrev (listOfList: int list list) =
     let reverseInner list =
         List.foldBack (fun item reversedList -> reversedList @ [item]) list []
