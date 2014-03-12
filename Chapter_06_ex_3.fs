@@ -20,6 +20,7 @@ type Fexpr = | Const of float
              | Log of Fexpr
              | Exp of Fexpr
 
+// The original toString
 let rec toString = function
     | Const x       -> string x
     | X             -> "x"

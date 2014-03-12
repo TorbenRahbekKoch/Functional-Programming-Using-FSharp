@@ -101,6 +101,7 @@
     <Compile Include="Chapter_06_ex_1.fs" />
     <Compile Include="Chapter_06_ex_2.fs" />
     <Compile Include="Chapter_06_ex_3.fs" />
+    <Compile Include="Chapter_06_ex_4.fs" />
     <Compile Include="Chapter_06_ex_8.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
