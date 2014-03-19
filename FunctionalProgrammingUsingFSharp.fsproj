@@ -105,6 +105,9 @@
     <Compile Include="Chapter_07_ex_1.fs" />
     <Compile Include="Complex.fsi" />
     <Compile Include="Chapter_07_ex_2.fs" />
+    <Compile Include="Chapter_08_ex_1.fs" />
+    <Compile Include="Chapter_08_ex_2.fs" />
+    <Compile Include="Chapter_08_ex_3.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>
