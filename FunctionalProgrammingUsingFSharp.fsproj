@@ -5,12 +5,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>53a0ae05-0a65-49aa-9606-4c7973ad96e4</ProjectGuid>
+    <ProjectGuid>53A0AE05-0A65-49AA-9606-4C7973AD96E4</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>FunctionalProgrammingUsingFSharp</RootNamespace>
     <AssemblyName>FunctionalProgrammingUsingFSharp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Name>FunctionalProgrammingUsingFSharp</Name>
+    <ProductVersion>12.0.0</ProductVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,7 +39,6 @@
   <ItemGroup>
     <Reference Include="FsUnit.NUnit">
       <HintPath>packages\FsUnit.1.2.1.0\Lib\Net40\FsUnit.NUnit.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -46,14 +46,12 @@
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="Unquote">
       <HintPath>packages\Unquote.2.2.2\lib\net40\Unquote.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +101,10 @@
     <Compile Include="Chapter_06_ex_3.fs" />
     <Compile Include="Chapter_06_ex_4.fs" />
     <Compile Include="Chapter_06_ex_8.fs" />
+    <Compile Include="Vector.fsi" />
+    <Compile Include="Chapter_07_ex_1.fs" />
+    <Compile Include="Complex.fsi" />
+    <Compile Include="Chapter_07_ex_2.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>
