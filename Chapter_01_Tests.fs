@@ -49,3 +49,8 @@ type ``Chapter 01 Tests``() =
         sum(2, 2) |> should equal 9
         sum(3, 2) |> should equal 12
 
+    [<Test>]
+    member x.``Exercise 1.7 Factorial``() =
+        fac 2 |> should equal 2
+        fac 3 |> should equal 6
+        fac 5 |> should equal 120
