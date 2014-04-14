@@ -19,10 +19,12 @@
     let factC n =
         let rec factC' n c =
             if n = 1 then c 1
-            elif n = 2 then c 2
-            else factC' (n-1) (fun res -> c((res) * n))
+            else factC' (n-1) (fun res -> c(res * n))
         factC' n id
 
+    // When passing a continuation you pass a function that 1: captures a value for the current
+    // recursion level and 2: can compute the result given a value when the recursion has happened.
+     
 // Runtime comparison
 
     let xs16 = List.init 1000000 (fun i -> 16)
