@@ -35,7 +35,7 @@ let hf1 = function
 
 // Again why necessary to give the type? Same reason as in 1.2 above.
 let hf2 = function
-    | (x:float, y) -> sqrt(x*x + y*y)
+    | (x:float, y:float) -> sqrt(x*x + y*y)
 
 // 1.4
 // How to avoid the incomplete matches warning? Well, F# does not take the 
