@@ -9,9 +9,13 @@ type ``Chapter_02_Tests``() =
 
     [<Test>] 
     member x.``2.1``() = 
+        f 5  |> should equal false
+        f 6  |> should equal true
+        f 15 |> should equal false
         f 24 |> should equal true
         f 27 |> should equal true
         f 29 |> should equal false
+        f 30 |> should equal false
 
     member x.``powTester`` powf =
         powf "a" -1 |> should equal "" // I've chosen to define it like this

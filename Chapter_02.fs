@@ -3,9 +3,9 @@ open System
 
 // 2.1 - again: remember the implicit parameter
 let f = function
+  | n when n % 5 = 0 -> false 
   | n when n % 2 = 0 -> true
   | n when n % 3 = 0 -> true
-  | n when n % 5 = 0 -> false // Not strictly necessary but makes it explicit that 5 should result in false
   | _ -> false           
 
 // 2.2 - here a recursive version

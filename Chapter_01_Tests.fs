@@ -51,6 +51,6 @@ type ``Chapter 01 Tests``() =
 
     [<Test>]
     member x.``Exercise 1.7 Factorial``() =
-        fac 2 |> should equal 2
-        fac 3 |> should equal 6
-        fac 5 |> should equal 120
+        fact 2 |> should equal 2
+        fact 3 |> should equal 6
+        fact 5 |> should equal 120
